@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.willardpc.riter">
-    
-    <permission android:name="com.example.Riter"/>
+
 
     <application
         android:allowBackup="true"
