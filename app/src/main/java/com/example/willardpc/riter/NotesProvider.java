@@ -3,7 +3,9 @@ package com.example.willardpc.riter;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
@@ -17,9 +19,21 @@ public class NotesProvider extends ContentProvider{
     private static final int NOTES = 1;
     private static final int NOTES_ID = 2;
 
+    private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
+    static {
+        uriMatcher.addURI(AUTHORITY, BASE_PATH, NOTES);
+        uriMatcher.addURI(AUTHORITY, BASE_PATH + "/#", NOTES_ID);
+    }
+
+    private SQLiteDatabase database;
+
     @Override
     public boolean onCreate() {
-        return false;
+
+        DBOpenHelper helper = new DBOpenHelper(getContext());
+        database = helper.getWritableDatabase();
+        return true;
     }
 
     @Nullable

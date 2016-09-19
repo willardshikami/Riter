@@ -24,6 +24,8 @@ public class DBOpenHelper extends SQLiteOpenHelper{
                     NOTE_CREATED + " TEXT default CURRENT_TIMESTAMP" +
                     ")";
 
+    public static final String[] ALL_COLUMNS = {NOTE_ID, NOTE_TEXT, NOTE_CREATED};
+
     public DBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

@@ -16,6 +16,11 @@
             </intent-filter>
         </activity>
 
+        <provider
+            android:authorities="com.example.riter.notesprovider"
+            android:name=".NotesProvider"
+            android:exported="false" />
+
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
